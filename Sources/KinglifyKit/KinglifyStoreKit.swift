@@ -202,7 +202,7 @@ open class KinglifyStore: NSObject, ObservableObject, SKRequestDelegate ,Kinglif
     }
 
     @MainActor
-    func updateCustomerProductStatus() async {
+    public func updateCustomerProductStatus() async {
         var newPurchasedSubscriptions: [Product] = []
         for await result in Transaction.currentEntitlements {
             do {
