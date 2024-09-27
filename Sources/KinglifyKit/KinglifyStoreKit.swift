@@ -8,13 +8,13 @@ typealias RenewalState = StoreKit.Product.SubscriptionInfo.RenewalState
 
 open class KinglifyStore: NSObject, ObservableObject, SKRequestDelegate ,KinglifyHandler{
     @Published public private(set) var subscriptions: [Product] = []
-    @Published private(set) var purchasedSubscriptions: [Product] = []
+    @Published public private(set) var purchasedSubscriptions: [Product] = []
     @Published private(set) var subscriptionGroupStatus: RenewalState?
     @Published private(set) var introOfferEligibility: [String: Bool] = [:] // Track eligibility for each product
     @Published public var universalLinkURL: URL?
     
     
-    @Published var showPaywall: Bool = false
+    @Published public var showPaywall: Bool = false
     @Published public var isLoading = true
     @Published var productIds: [String]
     
