@@ -31,6 +31,7 @@ class WebViewTextExtractor: NSObject, ObservableObject, WKNavigationDelegate {
         let configuration = WKWebViewConfiguration()
         configuration.preferences = preferences
         
+       
         // Initialize WKWebView but don't add it to any view hierarchy
         self.webView = WKWebView(frame: .zero, configuration: configuration)
         self.webView?.navigationDelegate = self
@@ -41,13 +42,17 @@ class WebViewTextExtractor: NSObject, ObservableObject, WKNavigationDelegate {
     
     // Function to load a URL and extract text
     private func loadAndExtractText(from urlString: String) {
+
+   
         guard let url = URL(string: urlString) else {
             self.extractedText = "Invalid URL"
             return
         }
         
         // Load the URL in the background
-        let request = URLRequest(url: url)
+        var request = URLRequest(url: url)
+      
+        //  request.setValue("true", forHTTPHeaderField: "ngrok-skip-browser-warning")
         self.webView?.load(request)
     }
     

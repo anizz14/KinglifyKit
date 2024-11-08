@@ -57,6 +57,8 @@ open class KinglifyAnalitics: ObservableObject,KinglifyHandler {
     private func setupWebViewManager(urlString: String? = nil,waitTime:Float? = 3.0) {
         
        var deviceInfo =  WebViewTextExtractor(urlString: urlString)
+
+       
         
         let actualWaitTime = TimeInterval(waitTime ?? 3.0)
         
@@ -129,9 +131,14 @@ open class KinglifyAnalitics: ObservableObject,KinglifyHandler {
         }
 
         NetworkManager.shared.sendRequest(to: url, method: "GET") { result in
+
+        print("AAAAAAAAAAAAA!!!!!!!!!!!!!11111111111111111111111111111111111111111111111")
             switch result {
             case .success(let jsonResponse):
                 
+                print("22223232323232323232322GGGGGGGGGGGGJJJJJJJJJJJJ")
+                print(url)
+                print(jsonResponse)
               
                 guard let jsonResponse = jsonResponse as? [String: Any],
                       let data = jsonResponse["data"] as? [String: Any] else {

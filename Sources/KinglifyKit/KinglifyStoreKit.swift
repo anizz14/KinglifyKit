@@ -32,6 +32,7 @@ open class KinglifyStore: NSObject, ObservableObject, SKRequestDelegate ,Kinglif
         detectmeUrl: String? = detectme_url,
         detectmewaittime:Float?=detectme_wait_time
     ) {
+  
            self.productIds = prodIds
         self.analytics = KinglifyAnalitics(serverUrl: serverUrl,detectmeUrl: detectmeUrl ,detectmewaittime: detectmewaittime);
            
